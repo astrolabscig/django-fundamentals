@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+# Virtual environment
+venv/
+env/
+# Django
+db.sqlite3
+/media/
+# Environment variables — (never commit secrets)
+.env
+# Editor
+.vscode/
+.idea/
+*.DS_Store
