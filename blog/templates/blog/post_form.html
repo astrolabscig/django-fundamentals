@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>Create a New Blog Post</h1>
+
+    <form method="POST" class="my-4">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        
+        <button type="submit" class="btn btn-success">Save Post</button>
+    </form>
+
+    <a href="{% url 'blog:home' %}">Cancel</a>
+{% endblock %}

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}My Blog{% endblock %}</title>
     <style>
-        /* minimal reset + layout */
+        /* minimal reset + layout
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: Futura, sans-serif; color: #222; }
         nav { background: #871d00; padding: 1rem 2rem; display: flex;
@@ -15,7 +15,67 @@
         nav .brand { color: #fff; font-weight: bold; font-size: 1.1rem; }
         main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
         footer { text-align: center; padding: 2rem; color: #888; font-size: 0.85rem;
-                border-top: 1px solid #eee; margin-top: 3rem; }
+                border-top: 1px solid #eee; margin-top: 3rem; } */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* A more web-standard stack */
+            color: #333; 
+            line-height: 1.6;
+            background-color: #f9f9f9; 
+        }
+
+        /* Polished Navigation */
+        nav { 
+            background: #871d00; 
+            padding: 1rem 10%; 
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .brand { 
+            color: #fff; 
+            font-weight: 800; 
+            font-size: 1.4rem; 
+            letter-spacing: -0.5px;
+        }
+
+        nav a { 
+            color: #fff; 
+            text-decoration: none; 
+            margin-left: 1.5rem; 
+            padding: 0.6rem 1.2rem; 
+            border-radius: 8px; 
+            background: rgba(255, 255, 255, 0.1); /* Subtle button feel */
+            transition: all 0.3s ease; 
+            font-weight: 500;
+        }
+
+        nav a:hover { 
+            background: #ff3636;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Wrapper */
+        main { 
+            max-width: 800px; 
+            margin: 3rem auto; 
+            padding: 2rem; 
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Adds depth */
+        }
+
+        /* Footer Improvements */
+        footer { 
+            text-align: center; 
+            padding: 2rem; 
+            color: #777; 
+            font-size: 0.9rem;
+            border-top: 1px solid #eaeaea; 
+            margin-top: 5rem; 
+        }
     </style>
 </head>
 <body>
