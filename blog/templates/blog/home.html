@@ -16,7 +16,6 @@
             <a href="{% url 'blog:post_detail' post.slug %}" class="post-title-link">
                 <h2>{{ post.title }}</h2>
             </a>
-            <p class="post-excerpt">{{ post.excerpt }}</p>
             <p class="post-meta mt-3">
                 This was created by {{ post.author }} on {{ post.created_at|date:"F d, Y" }}
             </p>

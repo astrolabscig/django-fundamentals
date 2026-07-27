@@ -22,16 +22,32 @@
                 <img src="{% static 'images/logo.png' %}" alt="Logo" height="30" class="me-2">
                 <span>Astro's Blog</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <div class="navbar-nav me-auto">
-                    <a class="nav-link" href="{% url 'blog:home' %}">Home</a>
-                    <a class="nav-link" href="{% url 'blog:about' %}">About</a>
+            <div class="ms-auto d-flex align-items-center">
+                {% if user.is_authenticated %}
+                <span class="text-dark me-3">Welcome, <strong>{{ user.username }}</strong></span>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <div class="navbar-nav me-auto">
+                        <a class="nav-link" href="{% url 'blog:home' %}">Home</a>
+                        <a class="nav-link" href="{% url 'blog:about' %}">About</a>
+                    </div>
                 </div>
+                <a href="{% url 'blog:create_post' %}" class="btn btn-primary btn-sm me-2">Write a Post</a>
             </div>
+
+            <form action="{% url 'logout' %}" method="POST" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-dark btn-sm">Logout</button>
+            </form>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-outline-dark btn-sm">Login</a>
+            {% endif %}
         </div>
     </nav>
  
