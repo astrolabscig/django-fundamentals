@@ -4,27 +4,26 @@
 
 {% block content %}
 
-    <h1>Welcome to My Blog</h1>
-    <p style="color: #666; margin: 0.5rem 0.2rem;">Latest posts</p>
+    <h1 class="blog-title-header">Welcome to My Blog</h1>
+    <a href="{% url 'blog:create_post' %}" class="btn btn-primary" >Create New Post</a>
+    <p class="subtitle-text">Latest posts</p>
 
     {% for post in posts %}
-        <div style="border: 1px solid #eee; border-radius: 8px;
-        padding: 1.25rem; margin-bottom: 1rem;">
-            <span style="font-size: 0.75rem; background: #f5e1e1;
-                color: #6e0f0f; padding: 2px 8px; border-radius: 20px;">
+        <div class="card my-3 blog-card">
+            <span class="category-badge category-badge--red">
                 {{ post.category }}
             </span>
-            <a href="{% url 'blog:post_detail' post.slug %}"
-                style="text-decoration: none; color: inherit;">
+            <a href="{% url 'blog:post_detail' post.slug %}" class="post-title-link">
                 <h2>{{ post.title }}</h2>
             </a>
-            <p style="color: #555; line-height: 1.6; ">{{ post.excerpt }}</p>
-            <p style="font-size: 0.8rem; color: #999; margin-top: 0.75rem;">
-                {{ post.date }} - {{ post.author }}
+            <p class="post-excerpt">{{ post.excerpt }}</p>
+            <p class="post-meta mt-3">
+                This was created by {{ post.author }} on {{ post.created_at|date:"F d, Y" }}
             </p>
+            <p>{{ post.body|truncatechars:150 }}</p>
         </div>
         {% empty %}
-            <p>No posts yet.</p>
+            <p>No blog posts yet.</p>
         {% endfor %}
         
 {% endblock %}

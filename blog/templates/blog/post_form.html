@@ -1,7 +1,9 @@
 {% extends 'blog/base.html' %}
 
+{% block title  %}{% if post %}Edit Post{% else %}Create New Blog Post{% endif %} - My Blog{% endblock %}
+
 {% block content %}
-    <h1>Create a New Blog Post</h1>
+    <h1>{% if post %}Edit Post {% else %}Create a New Blog Post{% endif %}</h1>
 
     <form method="POST" class="my-4">
         {% csrf_token %}
